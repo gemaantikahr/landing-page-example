@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gema Antika Hariadi | Senior Software Engineer</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --light: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; color: var(--text); background: var(--bg); }
+
+    /* Navbar */
+    header {
+      position: fixed; width: 100%; top: 0; left: 0;
+      background: var(--light); box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    .container { max-width: 1000px; margin: auto; padding: 0 1rem; }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-size: 1.25rem; font-weight: bold; color: var(--primary); }
+    .nav-links { display: flex; gap: 1rem; }
+    .nav-links a {
+      text-decoration: none; color: var(--text); padding: 0.5rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background: var(--text); }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    #home { display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #eef2ff, #fdf4ff); text-align: center;
+      height: 100vh; padding-top: 0;
+    }
+    #home .intro h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    #home .intro p { font-size: 1.2rem; color: #4b5563; }
+
+    h2 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--primary); }
+
+    /* Skills */
+    #skills .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 1rem; }
+    .skill { background: var(--light); padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .skill p { margin-top: 0.5rem; font-size: 0.9rem; color: #374151; }
+
+    /* Projects */
+    #projects .projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5rem; }
+    .project-card { background: var(--light); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); transition: transform .2s; }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card img { width: 100%; height: 160px; object-fit: cover; }
+    .project-card .content { padding: 1rem; }
+    .project-card h3 { margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.9rem; color: #4b5563; }
+
+    /* Experience */
+    #experience .timeline { position: relative; margin-left: 1rem; }
+    #experience .timeline::before {
+      content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+      width: 2px; background: var(--primary);
+    }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 2rem; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: 12px; top: 0;
+      width: 16px; height: 16px; background: var(--primary); border-radius: 50%;
+    }
+    .timeline-item h4 { margin-bottom: 0.25rem; }
+    .timeline-item span { font-size: 0.85rem; color: #6b7280; }
+
+    /* Contact */
+    #contact form { display: grid; gap: 1rem; max-width: 500px; margin: auto; }
+    #contact input, #contact textarea {
+      padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 4px;
+      font-size: 1rem; resize: vertical;
+    }
+    #contact button {
+      background: var(--primary); color: var(--light);
+      padding: 0.75rem; border: none; border-radius: 4px;
+      cursor: pointer; font-size: 1rem;
+    }
+    #contact button:hover { background: #4338ca; }
+
+    /* Footer */
+    footer { background: #1f2937; color: #9ca3af; text-align: center; padding: 1rem 0; }
+    footer a { color: #9ca3af; margin: 0 .5rem; text-decoration: none; }
+    footer a:hover { color: var(--light); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { position: absolute; top: 60px; left: 0; right: 0;
+        background: var(--light); flex-direction: column; align-items: center;
+        display: none;
+      }
+      .nav-links.show { display: flex; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Gema Antika</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <div></div><div></div><div></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Introduction -->
+  <section id="home">
+    <div class="intro">
+      <h1>Gema Antika Hariadi</h1>
+      <p>Senior Software Engineer</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <strong>JavaScript</strong>
+        <p>ES6+, React, Node.js</p>
+      </div>
+      <div class="skill">
+        <strong>TypeScript</strong>
+        <p>Angular, NestJS</p>
+      </div>
+      <div class="skill">
+        <strong>PHP</strong>
+        <p>Laravel, Symfony</p>
+      </div>
+      <div class="skill">
+        <strong>Go</strong>
+        <p>MikroORM, Gin</p>
+      </div>
+      <div class="skill">
+        <strong>Databases</strong>
+        <p>MySQL, PostgreSQL, MongoDB</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Project 1">
+        <div class="content">
+          <h3>TrimHub.id</h3>
+          <p>SaaS for barbershops: online bookings & payments.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Project 2">
+        <div class="content">
+          <h3>Lombok Product Engineer</h3>
+          <p>Community platform for tech events & roadshows.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Project 3">
+        <div class="content">
+          <h3>SIMRS Sync</h3>
+          <p>API integration between NestJS & hospital MIS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="container">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Founder & CEO, TrimHub.id</h4>
+        <span>Feb 2025 – Present</span>
+        <p>Built and launched a SaaS for barbershop management.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Senior Software Engineer, Virtual Vanguard</h4>
+        <span>Aug 2024 – Jan 2025</span>
+        <p>Led frontend & backend integration using Nuxt.js & NestJS.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Veterinarian & Developer</h4>
+        <span>2022 – 2024</span>
+        <p>Maintained clinic software while practicing veterinary medicine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gema Antika Hariadi</p>
+    <div>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>|
+      <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navLinks = document.getElementById('navLinks');
+    document.getElementById('hamburger')
+      .addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    // Simple form handler (replace with your email service)
+    function submitForm(e) {
+      e.preventDefault();
+      alert('Thank you, ' + document.getElementById('name').value + '! Your message has been sent.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
